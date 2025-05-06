@@ -36,13 +36,23 @@ body {
         top 0.7s cubic-bezier(.23,1.01,.32,1),
         transform 0.7s cubic-bezier(.23,1.01,.32,1);
     box-shadow: 0 2px 8px #0008;
+    width: auto !important;
+    min-width: 80px;
+    max-width: 100%;
+    white-space: pre-line;
+    word-break: break-word;
+    box-sizing: border-box;
 }
 .btn-si {
     background: #ff69b4;
     color: #fff;
-    width: 10rem;
     box-shadow: 0 0 20px 2px #ff69b4aa;
-
+    width: auto !important;
+    min-width: 80px;
+    max-width: 100%;
+    white-space: pre-line;
+    word-break: break-word;
+    box-sizing: border-box;
 }
 .btn-no {
     background: #fff;
@@ -50,7 +60,6 @@ body {
     border: 1px solid #ff69b4;
     position: absolute;
     left: 60px;
-    width: 10rem;
     top: 30px;
     transition:
         left 0.7s cubic-bezier(.23,1.01,.32,1),
@@ -58,6 +67,12 @@ body {
         box-shadow 0.4s,
         transform 0.7s cubic-bezier(.23,1.01,.32,1);
     box-shadow: 0 0 20px 2px #ff69b4aa;
+    width: auto !important;
+    min-width: 80px;
+    max-width: 100%;
+    white-space: pre-line;
+    word-break: break-word;
+    box-sizing: border-box;
 }
 .btn-no.moving {
     box-shadow: 0 0 60px 16px #ff69b4cc;

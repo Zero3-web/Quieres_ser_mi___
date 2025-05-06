@@ -30,6 +30,15 @@
     if (frase && frase.trim() !== "") {
         document.querySelector('h2').textContent = frase;
     }
+
+    const textoSi = getParameterByName('texto_si');
+    const textoNo = getParameterByName('texto_no');
+    if (textoSi && textoSi.trim() !== "") {
+        document.querySelector('.btn-si').textContent = textoSi;
+    }
+    if (textoNo && textoNo.trim() !== "") {
+        document.getElementById('btn-no').textContent = textoNo;
+    }
     </script>
 </body>
 </html>
