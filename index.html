@@ -16,22 +16,20 @@
     </div>
     <script src="galaxia.js"></script>
     <script>
-    // Lee la frase personalizada del URL y actualiza el h2
-    (function() {
-        // Obtiene la parte después del último "/"
-        var path = window.location.pathname;
-        var lastSlash = path.lastIndexOf('/');
-        var phrase = path.substring(lastSlash + 1);
+    // Lee el parámetro 'frase' de la URL y actualiza el h2
+    function getParameterByName(name, url = window.location.href) {
+        name = name.replace(/[\[\]]/g, '\\$&');
+        const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+        const results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
 
-        // Decodifica espacios y caracteres especiales
-        phrase = decodeURIComponent(phrase.replace(/\+/g, ' '));
-
-        // Si hay frase y no está vacía, actualiza el h2
-        if (phrase && phrase.trim() !== "") {
-            // Opcional: puedes poner un límite de longitud si quieres
-            document.querySelector('h2').textContent = phrase;
-        }
-    })();
+    const frase = getParameterByName('frase');
+    if (frase && frase.trim() !== "") {
+        document.querySelector('h2').textContent = frase;
+    }
     </script>
 </body>
 </html>
