@@ -1,0 +1,224 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    height: 100vh;
+    background: #000;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+.btns-area {
+    position: relative;
+    width: 800px; /* aún más grande */
+    height: 600px; /* aún más grande */
+    margin: 40px auto 0 auto;
+    background: transparent;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn {
+    padding: 12px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: background 0.3s cubic-bezier(.4,0,.2,1),
+        color 0.3s cubic-bezier(.4,0,.2,1),
+        box-shadow 0.5s cubic-bezier(.4,0,.2,1),
+        opacity 0.7s cubic-bezier(.4,0,.2,1),
+        left 0.7s cubic-bezier(.23,1.01,.32,1),
+        top 0.7s cubic-bezier(.23,1.01,.32,1),
+        transform 0.7s cubic-bezier(.23,1.01,.32,1);
+    box-shadow: 0 2px 8px #0008;
+}
+.btn-si {
+    background: #ff69b4;
+    color: #fff;
+    width: 10rem;
+    box-shadow: 0 0 20px 2px #ff69b4aa;
+
+}
+.btn-no {
+    background: #fff;
+    color: #ff69b4;
+    border: 1px solid #ff69b4;
+    position: absolute;
+    left: 60px;
+    width: 10rem;
+    top: 30px;
+    transition:
+        left 0.7s cubic-bezier(.23,1.01,.32,1),
+        top 0.7s cubic-bezier(.23,1.01,.32,1),
+        box-shadow 0.4s,
+        transform 0.7s cubic-bezier(.23,1.01,.32,1);
+    box-shadow: 0 0 20px 2px #ff69b4aa;
+}
+.btn-no.moving {
+    box-shadow: 0 0 60px 16px #ff69b4cc;
+    transform: scale(1.12) rotate(-8deg);
+    transition:
+        left 0.9s cubic-bezier(.23,1.01,.32,1),
+        top 0.9s cubic-bezier(.23,1.01,.32,1),
+        box-shadow 0.7s cubic-bezier(.4,0,.2,1),
+        transform 0.9s cubic-bezier(.23,1.01,.32,1);
+}
+.btn-volver {
+    background: linear-gradient(90deg, #ff69b4 10%, #a259ff 90%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 40px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0 auto;
+    box-shadow: 0 0 24px 4px #ff69b4aa;
+    display: block;
+    transition: opacity 0.9s cubic-bezier(.4,0,.2,1), background 0.7s cubic-bezier(.4,0,.2,1);
+}
+h2 {
+    font-size: 3.2rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 80px auto 20px auto; /* más abajo */
+    background: linear-gradient(90deg, #ff69b4 10%, #ffe4ec 50%, #a259ff 90%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    text-shadow: 0 2px 16px #ff69b455;
+    letter-spacing: 2px;
+    display: block;
+    transition: opacity 0.7s cubic-bezier(.4,0,.2,1), filter 0.7s cubic-bezier(.4,0,.2,1);
+}
+/* Fondo canvas galaxia */
+#galaxy-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    display: block;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* centra verticalmente */
+    align-items: center;
+    flex: 1 0 auto;
+    min-height: 60vh;
+    padding-top: 60px; /* empuja el contenido hacia abajo */
+}
+
+/* Responsive para móviles */
+@media (max-width: 900px) {
+    .btns-area {
+        width: 98vw;
+        height: 60vw;
+        min-width: 220px;
+        min-height: 180px;
+        max-width: 99vw;
+        max-height: 80vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .container {
+        width: 98vw;
+        min-width: 220px;
+        padding: 18px 2vw;
+        padding-top: 40px;
+        justify-content: center;
+        align-items: center;
+    }
+    h2 {
+        font-size: 2.6rem;
+        margin-top: 40px;
+        margin-bottom: 32px;
+        text-align: center;
+    }
+    .btn, .btn-si, .btn-no, .btn-volver {
+        font-size: 1.5rem !important;
+        padding: 18px 28px !important;
+        min-width: 140px;
+        min-height: 56px;
+    }
+    #heart-canvas {
+        width: 300px !important;
+        height: 220px !important;
+        max-width: 98vw;
+        margin: 60px auto 0 auto;
+    }
+}
+@media (max-width: 600px) {
+    .btns-area {
+        width: 99vw;
+        height: auto;
+        min-width: 120px;
+        min-height: 120px;
+        max-width: 99vw;
+        max-height: 60vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+    }
+    .container {
+        width: 99vw;
+        min-width: 120px;
+        padding: 10px 1vw;
+        padding-top: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+    h2 {
+        font-size: 2.1rem;
+        margin-top: 24px;
+        margin-bottom: 28px;
+        text-align: center;
+        transition: opacity 0.7s cubic-bezier(.4,0,.2,1), filter 0.7s cubic-bezier(.4,0,.2,1);
+    }
+    .btn, .btn-si, .btn-no, .btn-volver {
+        font-size: 1.25rem !important;
+        padding: 16px 18px !important;
+        min-width: 120px;
+        min-height: 48px;
+        margin: 10px 0 !important;
+    }
+    #heart-canvas {
+        width: 180px !important;
+        height: 120px !important;
+        max-width: 98vw;
+        margin: 40px auto 0 auto;
+    }
+}
+
+/* Confeti canvas */
+#confetti-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 10;
+    display: block;
+}
+
+#heart-canvas {
+    display: block;
+    margin: 80px auto 0 auto;
+    max-width: 100vw;
+    width: 420px;
+    height: 320px;
+    background: none !important;
+    pointer-events: none;
+    box-shadow: none !important;
+    border: none !important;
+}
