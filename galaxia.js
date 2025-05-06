@@ -172,6 +172,17 @@ window.addEventListener('resize', () => {
 });
 
 // --- EFECTO AL PRESIONAR SÍ ---
+// Obtener mensaje personalizado de la URL
+function getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+    const results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+const mensajeSi = getParameterByName('mensaje_si') || '¡Sabía que dirías que sí!';
+
 btnSi.addEventListener('click', () => {
     // Cambia galaxia a rosa con brillo y más estrellas
     galaxyPink = true;
@@ -183,7 +194,7 @@ btnSi.addEventListener('click', () => {
     container.style.opacity = '0.2';
 
     setTimeout(() => {
-        h2.textContent = '¡Sabía que dirías que sí!';
+        h2.textContent = mensajeSi;
         container.style.filter = 'blur(0px)';
         container.style.opacity = '1';
         h2.style.filter = 'blur(8px)';
