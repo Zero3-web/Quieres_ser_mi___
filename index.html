@@ -8,12 +8,30 @@
 <body>
     <canvas id="galaxy-bg"></canvas>
     <div class="container">
-        <h2>¿QUIERES SER MI NOVIA?</h2>
+        <h2>ME COMPRAS UN BOLSO?</h2>
         <div class="btns-area" id="btns-area">
             <button class="btn btn-si">Sí</button>
             <button class="btn btn-no" id="btn-no">No</button>
         </div>
     </div>
     <script src="galaxia.js"></script>
+    <script>
+    // Lee la frase personalizada del URL y actualiza el h2
+    (function() {
+        // Obtiene la parte después del último "/"
+        var path = window.location.pathname;
+        var lastSlash = path.lastIndexOf('/');
+        var phrase = path.substring(lastSlash + 1);
+
+        // Decodifica espacios y caracteres especiales
+        phrase = decodeURIComponent(phrase.replace(/\+/g, ' '));
+
+        // Si hay frase y no está vacía, actualiza el h2
+        if (phrase && phrase.trim() !== "") {
+            // Opcional: puedes poner un límite de longitud si quieres
+            document.querySelector('h2').textContent = phrase;
+        }
+    })();
+    </script>
 </body>
 </html>
